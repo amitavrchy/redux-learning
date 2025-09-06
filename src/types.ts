@@ -6,3 +6,12 @@ export default interface ITask {
     isCompleted: boolean
     priority: "High" | "Medium" | "Low"
 }
+
+export interface Task {
+  id: string;
+  title: string;
+  description: string;
+  dueDate: string; // Format: "YYYY-MM"
+  isCompleted: boolean;
+  priority: 'Low' | 'Medium' | 'High';
+}

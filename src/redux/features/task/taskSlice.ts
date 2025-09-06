@@ -1,6 +1,7 @@
 import type ITask from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
+
 interface InitialState {
     task: ITask[]
 }
@@ -22,5 +23,11 @@ const taskSlice = createSlice({
     initialState,
     reducers: {}
 })
+
+
+export const selectTask = (state: any) => {
+    return state.tasks.task
+}
+
 export default taskSlice.reducer
 
