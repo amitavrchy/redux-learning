@@ -13,9 +13,12 @@ export const Task = () => {
         <h2 className="text-2xl font-bold">Tasks</h2>
         <AddTaskModal />
       </div>
-      {tasks?.map((task: any) => {
-        return <TaskCard task={task} />
-      })}
+      <div className="flex gap-5" >
+        {tasks?.map((task: any) => {
+          return <TaskCard task={task} />
+        })}
+      </div>
+
     </div>
   )
 }

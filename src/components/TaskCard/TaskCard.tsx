@@ -1,6 +1,9 @@
 // TaskCard.tsx
 import React from 'react';
 import type { Task } from '@/types';
+import { Button } from '../ui/button';
+import { deleteTask, toggleCompletedState } from '@/redux/features/task/taskSlice';
+import { useDispatch } from 'react-redux';
 
 interface TaskCardProps {
   task: Task;
@@ -13,6 +16,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
     Medium: 'text-yellow-600',
     Low: 'text-green-600',
   };
+  const dispatch = useDispatch()
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 border border-gray-200 w-full max-w-md">
@@ -34,13 +38,16 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
         </div>
         <div>
           <span
-            className={`font-semibold ${
-              task.isCompleted ? 'text-green-600' : 'text-orange-500'
-            }`}
+            className={`font-semibold ${task.isCompleted ? 'text-green-600' : 'text-orange-500'
+              }`}
           >
             {task.isCompleted ? 'Completed' : 'Pending'}
           </span>
         </div>
+      </div>
+      <div className='flex gap-2 mt-5'>
+        <Button className='bg-green-600' onClick={() => dispatch(toggleCompletedState(task.id))}>Mark as Completed</Button>
+        <Button className='bg-red-600' onClick={() => dispatch(deleteTask(task.id))}>Delete Task</Button>
       </div>
     </div>
   );

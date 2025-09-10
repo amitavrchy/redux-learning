@@ -18,10 +18,14 @@ import { cn } from "@/lib/utils"
 import { CalendarIcon } from "lucide-react"
 import { Calendar } from "../ui/calendar"
 import { format } from "date-fns"
+import { useDispatch } from "react-redux"
+import { addTask } from "@/redux/features/task/taskSlice"
 
 export function AddTaskModal() {
     const form = useForm()
+    const dispatch = useDispatch()
     const onSubmit = (data: any) => {
+        dispatch(addTask(data))
         console.log(data)
     }
     return (

@@ -15,3 +15,8 @@ export interface Task {
   isCompleted: boolean;
   priority: 'Low' | 'Medium' | 'High';
 }
+export interface User {
+  id: string;
+  name: string;
+  role: "Developer" | "Programmer"
+}
