@@ -4,7 +4,8 @@ export default interface ITask {
     description: string
     dueDate: string
     isCompleted: boolean
-    priority: "High" | "Medium" | "Low"
+    priority: "High" | "Medium" | "Low",
+    userAssign: String | null
 }
 
 export interface Task {
@@ -14,6 +15,7 @@ export interface Task {
   dueDate: string; // Format: "YYYY-MM"
   isCompleted: boolean;
   priority: 'Low' | 'Medium' | 'High';
+  userAssign: String
 }
 export interface User {
   id: string;

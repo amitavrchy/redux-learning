@@ -45,6 +45,9 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
           </span>
         </div>
       </div>
+      <div className='text-left text-gray-600 mt-5'>
+        User: {task.userAssign ? task.userAssign : "No Fucking User here"}
+      </div>
       <div className='flex gap-2 mt-5'>
         <Button className='bg-green-600' onClick={() => dispatch(toggleCompletedState(task.id))}>Mark as Completed</Button>
         <Button className='bg-red-600' onClick={() => dispatch(deleteTask(task.id))}>Delete Task</Button>
